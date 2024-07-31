@@ -1,4 +1,5 @@
 const Card = ({ articleManga }) => {
+
   return (
     <>
         {articleManga.map((item) => {
