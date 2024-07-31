@@ -10,10 +10,12 @@ function App() {
 
   return (
     <>
+    <div className="bg-dark-background text-dark-text">
       <Navbar setPage={setPage} activePage={page}/>
       {page === "home" && <Home />}
       {page === "anime" && <Anime />}
       {page === "manga" && <Manga />}
+    </div>
     </>
   );
 }

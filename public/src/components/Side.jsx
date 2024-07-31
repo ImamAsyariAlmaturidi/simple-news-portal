@@ -1,21 +1,42 @@
-const Side = () => {
+const Side = ({ articleAnime }) => {
   return (
     <>
-      <div>
-        <div className="border-b-4 border-neutral-400 my-3 cursor-pointer">
-          <img src="https://a.storyblok.com/f/178900/920x518/0cab83cf96/ill-become-a-villainess-who-goes-down-in-history.jpg/m/576x0/filters:quality(95)format(webp)" />
-          <div className="flex justify-around my-5">
-            <p>category</p>
-            <p>tanggal bulan tahun</p>
+      {/* Modal */}
+      <div onClick={() => document.getElementById("my_modal_1").showModal()}>
+        <dialog id="my_modal_1" className="modal">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">title</h3>
+            <p className="py-4">content</p>
+            <button className="btn">See Details!</button>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn">Close</button>
+              </form>
+            </div>
           </div>
-          <h4 className="text-center my-3 mx-3">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic
-            molestias labore aliquid officia amet est similique ex eligendi ab
-            doloremque mollitia nulla laudantium expedita, atque nemo optio
-            dolor ratione natus!
-          </h4>
-          <h1 className="mb-2 text-emerald-500 hover:underline cursor-pointer transition-all">Creator</h1>
-        </div>
+        </dialog>
+
+        {/* Card Side */}
+        {articleAnime.map((item) => {
+          return (
+            <div
+              key={item.id}
+              className="border-b-4 border-neutral-400 my-3 cursor-pointer"
+            >
+              <img src={item.imgUrl} />
+              <div className="flex justify-around my-5">
+                <p>category</p>
+                <p>{item.createdAt}</p>
+              </div>
+              <h4 className="text-center my-3 mx-3 font-poppins">
+                {item.title}
+              </h4>
+              <h1 className="mb-2 text-emerald-500 hover:underline cursor-pointer transition-all">
+                Creator
+              </h1>
+            </div>
+          );
+        })}
       </div>
     </>
   );
