@@ -33,6 +33,7 @@ const Main = () => {
       console.log(error)
     }
   }
+
   useEffect(() => {
     getArticleAnime()
     getArticleManga()
