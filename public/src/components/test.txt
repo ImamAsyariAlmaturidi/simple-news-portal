@@ -1,0 +1,23 @@
+ <dialog key={data.id} id="my_modal_1" className="modal">
+          <div className="modal-box">
+            <img
+              className="mb-3 rounded-lg shadow-lg shadow-black"
+              src={data.imgUrl}
+              alt={data.title}
+            />
+            <h3 className="font-bold text-lg">{data.title}</h3>
+            <p className="py-4">{data.content}</p>
+            <div className="flex justify-around my-5">
+              {/* <button className="bg-purple-500 px-2 rounded-lg transition-all hover:h-8 font-poppins text-black">{data.Category.name}</button> */}
+              <p>{data.createdAt}</p>
+            </div>
+            <h1 className="mb-2 text-white font-poppins font-bold hover:underline cursor-pointer transition-all">
+              {/* Creator:  {data.User.username.toUpperCase()} */}
+            </h1>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
