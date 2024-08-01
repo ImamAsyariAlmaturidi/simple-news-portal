@@ -56,6 +56,14 @@ const Main = () => {
       setLoading(true);
       await fun.getArticleAnime();
       await fun.getArticleManga();
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
       await fun.getAllArticle();
       setLoading(false);
     };
@@ -68,7 +76,7 @@ const Main = () => {
         <Loading />
       ) : (
         <>
-          <Carousel />
+        <Carousel />
           <div className="grid grid-cols-4">
             <div className="grid grid-cols-1 gap-4 my-[50px] mx-10">
               <span className="text-3xl font-bold text-white tracking-wider border-b-2 border-orange-600 font-bebas">
@@ -92,6 +100,14 @@ const Main = () => {
           <center>
             <Search setData={setAllArticle} />
           </center>
+        </>
+      )}
+    
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
           <span className="w-full px-8 my-8 grid grid-cols-3 gap-4 ">
             <span className="text-3xl font-bold text-center text-white tracking-widest border-b-2 border-orange-600 font-bebas">
               <p className="mb-2">All News</p>

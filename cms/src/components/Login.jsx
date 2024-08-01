@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {useState, useEffect} from 'react'
+import bg from "../assets/cute-please.gif"
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -23,7 +24,7 @@ const Login = () => {
           <div className="flex h-full flex-wrap items-center justify-center lg:justify-between">
             <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
               <img
-                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                src={bg}
                 className="w-full"
                 alt="Phone image"
               />

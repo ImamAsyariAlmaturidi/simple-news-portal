@@ -4,20 +4,15 @@ import Anime from "./pages/Anime";
 import Manga from "./pages/Manga";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
+import router from "../routers";
+import { RouterProvider } from "react-router-dom";
 function App() {
   const [page, setPage] = useState("home");
 
   return (
-
-      <>
-        <div className="bg-dark-background text-dark-text">
-          <Navbar setPage={setPage} activePage={page} />
-          {page === "home" && <Home />}
-          {page === "anime" && <Anime />}
-          {page === "manga" && <Manga />}
-        </div>
-      </>
-
+    <>
+    <RouterProvider router={router} />
+    </>
   );
 }
 

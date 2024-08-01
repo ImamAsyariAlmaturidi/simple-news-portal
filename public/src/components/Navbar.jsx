@@ -1,8 +1,9 @@
 import React from "react";
-
-const Navbar = ({ setPage, activePage }) => {
-  const navItems = [
-    { name: "Latest News", key: "home" },
+import { useNavigate } from "react-router-dom";
+const Navbar = () => {
+  const navigate = useNavigate()
+  const navParams = [
+    { name: "Latest News", key: "" },
     { name: "Manga", key: "manga" },
     { name: "Anime", key: "anime" },
   ];
@@ -13,13 +14,10 @@ const Navbar = ({ setPage, activePage }) => {
         <h1 className="text-center">Logo</h1>
         <div>
           <ul className="flex justify-between w-56 cursor-pointer">
-            {navItems.map((item) => (
+            {navParams.map((item) => (
               <li
                 key={item.key}
-                className={`${
-                  activePage === item.key ? "text-orange-400" : "text-white"
-                }`}
-                onClick={() => setPage(item.key)}
+                onClick={() => navigate(`/${item.key}`)}
               >
                 {item.name}
               </li>
