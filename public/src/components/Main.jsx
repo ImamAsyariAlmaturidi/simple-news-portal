@@ -6,6 +6,7 @@ import Pagination from "./Pagination";
 import Carousel from "./Carousel";
 import Loading from "./Loading";
 import Search from "./Search";
+import gif1 from '../assets/dance-dancing.gif'
 const Main = () => {
   const [articleAnime, setArticleAnime] = useState([]);
   const [articleManga, setArticleManga] = useState([]);
@@ -80,7 +81,7 @@ const Main = () => {
           <div className="grid grid-cols-4">
             <div className="grid grid-cols-1 gap-4 my-[50px] mx-10">
               <span className="text-3xl font-bold text-white tracking-wider border-b-2 border-orange-600 font-bebas">
-                Latest News
+                Anime
               </span>
               <Side articleAnime={articleAnime} />
             </div>
@@ -91,10 +92,14 @@ const Main = () => {
               <Card articleManga={articleManga} />
             </div>
             <div className="grid col-span-1 grid-cols-1 gap-4 my-[50px] mx-10">
-              <span className="text-3xl font-bold text-white tracking-wider border-b-2 border-orange-600 font-bebas">
-                Anime
-              </span>
-              <Side articleAnime={articleAnime} />
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
+              <img src={gif1} ></img>
             </div>
           </div>
           <center>
