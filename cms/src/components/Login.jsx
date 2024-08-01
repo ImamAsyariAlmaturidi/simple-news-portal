@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Toastify from 'toastify-js'
 import {useState, useEffect} from 'react'
 import bg from "../assets/cute-please.gif"
 const Login = () => {
@@ -11,7 +12,38 @@ const Login = () => {
     try {
         const { data } = await axios.post('https://server.imam-asyari.online/user/login', {email, password})
         localStorage.setItem("access_token", data.access_token)
+        console.log(data)
+        Toastify({
+          text: "Success Login",
+          duration: 2000,
+          newWindow: true,
+          close: true,
+          gravity: "bottom",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+              background: "#00B29F",
+              color: "#17202A",
+              boxShadow: "0 5px 10px black",
+              fontWeight: "bold"
+          }
+      }).showToast();;
     } catch (error) {
+      Toastify({
+        text: error.response.data.message,
+        duration: 2000,
+        newWindow: true,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "#EF4C54",
+            color: "#17202A",
+            boxShadow: "0 5px 10px black",
+            fontWeight: "bold"
+        }
+    }).showToast();
      console.log(error)   
     }
   }

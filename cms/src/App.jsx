@@ -1,24 +1,20 @@
 import { useState, useEffect } from 'react'
 
-import Login from './components/Login'
+import LoginPage from './pages/LoginPage'
 import Navbar from './components/Navbar'
 import Form from './components/Form'
+import AddFormUser from './components/AddUserForm'
+import Dashboard from './pages/Dashboard'
+import EditForm from './components/EditForm'
 function App() {
-  const [page, setPage] = useState('login')
-  let token = localStorage.access_token
-  useEffect(() => {
-      if (token) {
-          setPage("home")
-      } else {
-          setPage("login")
-      }
-  }, [])
-
   return (
     <>
      <Navbar />
-     <Login />
      <Form />
+     <LoginPage />
+     <EditForm />
+     <AddFormUser />
+     <Dashboard />
     </>
   )
 }

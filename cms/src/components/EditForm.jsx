@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Modal = () => {
+const EditForm = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Modal = () => {
   )
 }
 
-export default Modal
+export default EditForm
