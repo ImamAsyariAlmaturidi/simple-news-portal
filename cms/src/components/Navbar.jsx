@@ -1,25 +1,36 @@
 import React from "react";
+import Dialog from "./Dialog";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  function logout() {
+    localStorage.clear();
+    navigate("/");
+  }
+
   return (
     <div className="navbar fixed text-white flex justify-around bg-red-300 z-50 items-center p-4">
       <div className="flex items-center">
         <a href="https://neko-news.vercel.app">
-        <img
-          src="https://media1.tenor.com/m/vORI9e-AqoUAAAAC/menhera-chan-chibi.gif"
-          alt="Anime GIF"
-          className="w-12 h-12"
+          <img
+            src="https://media1.tenor.com/m/vORI9e-AqoUAAAAC/menhera-chan-chibi.gif"
+            alt="Anime GIF"
+            className="w-12 h-12"
           />
-          </a>
+        </a>
       </div>
       <div>
-        <button className="btn btn-ghost btn-xl">Add Article</button>
+        <Dialog buttonName="Add Article"/>
       </div>
       <div>
-        <button className="btn btn-ghost btn-xl">Add User</button>
+        <Dialog buttonName="Add User" />
       </div>
       <div>
-        <button className="btn btn-ghost btn-xl">Log Out</button>
+        <button onClick={logout} className="btn btn-xl">
+          Log Out
+        </button>
       </div>
     </div>
   );

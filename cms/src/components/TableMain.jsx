@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -38,10 +37,9 @@ const TableMain = () => {
     getAllArticle();
   }, []);
   return (
-    <div>
-      <Navbar />
+    <div className="flex justify-center items-center pt-24 shadow-lg">
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table bg-black " >
           {/* head */}
           <thead>
             <tr>
@@ -55,7 +53,7 @@ const TableMain = () => {
             {article.map((item) => {
               return (
                 <>
-                  <tr key={item.id}>
+                  <tr>
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="avatar">
@@ -83,10 +81,14 @@ const TableMain = () => {
                     </td>
                     <td>anime</td>
                     <th>
-                      <span>
-                        <button className="btn btn-ghost btn-xs">Update</button>
+                      <span className="grid grid-cols-2 gap-4">
+                      <button
+                          className="btn btn-warning btn-xs" 
+                        >
+                          Update
+                        </button>
                         <button
-                          className="btn btn-ghost btn-xs"
+                          className="btn btn-error btn-xs" 
                           onClick={() => deleteArticle(item.id)}
                         >
                           Delete

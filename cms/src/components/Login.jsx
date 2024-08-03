@@ -3,18 +3,20 @@ import axios from "axios";
 import Toastify from 'toastify-js'
 import {useState, useEffect} from 'react'
 import bg from "../assets/cute-please.gif"
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  async function Login(e) {
+  async function login(e) {
     e.preventDefault()
     try {
         const { data } = await axios.post('https://server.imam-asyari.online/user/login', {email, password})
         localStorage.setItem("access_token", data.access_token)
         console.log(data)
         Toastify({
-          text: "Success Login",
+          text: "Success login",
           duration: 2000,
           newWindow: true,
           close: true,
@@ -28,6 +30,7 @@ const Login = () => {
               fontWeight: "bold"
           }
       }).showToast();;
+      navigate('/dashboard')
     } catch (error) {
       Toastify({
         text: error.response.data.message,
@@ -46,8 +49,8 @@ const Login = () => {
     }).showToast();
      console.log(error)   
     }
-  }
 
+  }
   
   return (
     <div>
@@ -63,7 +66,7 @@ const Login = () => {
             </div>
 
             <div className="md:w-8/12 lg:ms-6 lg:w-5/12">
-              <form onSubmit={Login}>
+              <form onSubmit={login}>
                 <div className="relative mb-6" data-twe-input-wrapper-init>
                   <input
                     type="text"
