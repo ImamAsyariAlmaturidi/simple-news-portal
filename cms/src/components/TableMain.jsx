@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const TableMain = () => {
   const [article, setArticle] = useState([]);
@@ -35,11 +36,11 @@ const TableMain = () => {
 
   useEffect(() => {
     getAllArticle();
-  }, []);
+  }, [article]);
   return (
     <div className="flex justify-center items-center pt-24 shadow-lg">
       <div className="overflow-x-auto">
-        <table className="table bg-black " >
+        <table className="table bg-black ">
           {/* head */}
           <thead>
             <tr>
@@ -79,16 +80,14 @@ const TableMain = () => {
                         {item.createdAt}
                       </span>
                     </td>
-                    <td>anime</td>
+                    <td>{item.Category.name}</td>
                     <th>
                       <span className="grid grid-cols-2 gap-4">
-                      <button
-                          className="btn btn-warning btn-xs" 
-                        >
-                          Update
-                        </button>
+                        <Link to={`/edit-article/${item.id}`}>
+                          <button className="btn btn-xs btn-warning">Update</button>
+                        </Link>
                         <button
-                          className="btn btn-error btn-xs" 
+                          className="btn btn-error btn-xs"
                           onClick={() => deleteArticle(item.id)}
                         >
                           Delete

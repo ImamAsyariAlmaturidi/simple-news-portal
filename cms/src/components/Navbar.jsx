@@ -1,6 +1,7 @@
 import React from "react";
 import Dialog from "./Dialog";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,13 +23,19 @@ const Navbar = () => {
         </a>
       </div>
       <div>
-        <Dialog buttonName="Add Article"/>
+        <Button buttonName="List Category" path="/dashboard/category" />
       </div>
       <div>
-        <Dialog buttonName="Add User" />
+        <Button buttonName="My Article" path="/dashboard" />
       </div>
       <div>
-        <button onClick={logout} className="btn btn-xl">
+        <Dialog buttonName="Add Article" />
+      </div>
+      <div>
+        <Button buttonName="Add Staff" path="/add-user" />
+      </div>
+      <div>
+        <button onClick={logout} className="btn btn-xl btn-ghost">
           Log Out
         </button>
       </div>
